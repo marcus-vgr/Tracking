@@ -1,9 +1,8 @@
 import numpy as np
 import sys
-import pickle
 
 from tracking.variables import *
-from tracking.utils import save_pickle, open_pickle
+from tracking.utils import save_pickle
 
 class DataGenerator:
     """
