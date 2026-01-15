@@ -64,7 +64,7 @@ class DataGenerator:
 def main():
 
     if len(sys.argv) != 3:
-        print("Please run python generate_data.py <nEvents> <ofile>")
+        print("Please run python generate_data.py <nTracks> <ofile>")
         return
     
     nEvents = int(sys.argv[1])
