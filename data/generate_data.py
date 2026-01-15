@@ -37,9 +37,11 @@ class DataGenerator:
         ]
     
     def create_tracks(self):
-        ## Make more likely to have high-pT tracks. Log-normal?
-        pTs = np.random.uniform(low=self.pTmin, high=self.pTmax, size=self.nTracks).astype(np.float32) 
-        charges = np.random.choice([-1,+1], size=self.nTracks).astype(np.int16)
+        # We wanna pT to be closer to pTmax, not pTmin, so we generate the following:
+        alpha = 0.8 # if alpha = 1, uniform distribution, while alpha -> 0 indicates strong preferance to pTmax
+        u = np.random.rand(self.nTracks)
+        pTs = self.pTmin + (u ** alpha) * (self.pTmax - self.pTmin)
+        charges = np.random.choice([-1,+1], size=self.nTracks)
 
         self.tracks = []
         for pT, charge in zip(pTs, charges):
@@ -71,5 +73,7 @@ def main():
     gen = DataGenerator(nEvents, output)
     gen.generate_data()
     
+    print(gen.tracks)
+
 if __name__ == "__main__":
     main()
