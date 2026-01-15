@@ -73,7 +73,5 @@ def main():
     gen = DataGenerator(nEvents, output)
     gen.generate_data()
     
-    print(gen.tracks)
-
 if __name__ == "__main__":
     main()
