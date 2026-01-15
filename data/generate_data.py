@@ -68,9 +68,9 @@ def main():
         print("Please run python generate_data.py <nTracks> <ofile>")
         return
     
-    nEvents = int(sys.argv[1])
+    nTracks = int(sys.argv[1])
     output = sys.argv[2]
-    gen = DataGenerator(nEvents, output)
+    gen = DataGenerator(nTracks, output)
     gen.generate_data()
     
 if __name__ == "__main__":
